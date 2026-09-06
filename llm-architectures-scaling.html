@@ -30,9 +30,9 @@ footer{border-top:1px solid var(--line);padding:30px 0 54px;color:#8793ad;font-s
 .menu-btn[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
 .menu-btn[aria-expanded="true"] span:nth-child(2){opacity:0}
 .menu-btn[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-.menu-panel{max-height:0;overflow:hidden;transition:max-height .3s ease;border-bottom:0 solid var(--line)}
-.menu-panel.open{max-height:70vh;overflow-y:auto;border-bottom:1px solid var(--line)}
-.menu-panel .wrap{display:flex;flex-wrap:wrap;gap:8px;padding:6px 24px 20px}
+.menu-panel{display:grid;grid-template-rows:0fr;overflow:hidden;transition:grid-template-rows .3s ease;border-bottom:0 solid var(--line)}
+.menu-panel.open{grid-template-rows:1fr;border-bottom:1px solid var(--line)}
+.menu-panel .wrap{display:flex;flex-wrap:wrap;gap:8px;padding:6px 24px 20px;min-height:0;overflow-y:auto;max-height:70vh}
 .menu-panel a{font-size:13px;padding:7px 10px;border:1px solid var(--line);border-radius:999px;color:#cbd6ef}
 .menu-panel a.active{background:#3a2a12;color:#fff;border-color:#8a6a35}
 .menu-panel a:hover{text-decoration:none;background:#18243f}
