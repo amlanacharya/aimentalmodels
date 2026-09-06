@@ -1,4 +1,4 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Page not found — AI Engineer Mental Models</title><meta name="description" content="This page doesn't exist."><link rel="icon" type="image/svg+xml" href="favicon.svg"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"><style>
+<!doctype html><html lang="en"><head><script>(function(){try{var s=localStorage.getItem('theme');document.documentElement.setAttribute('data-theme',s||'dark');}catch(e){}})();</script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Page not found — AI Engineer Mental Models</title><meta name="description" content="This page doesn't exist."><link rel="icon" type="image/svg+xml" href="favicon.svg"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"><style>
 :root{
   --bg:#0b1020; --panel:#11182b; --panel2:#151f37; --ink:#f7f9ff; --muted:#aab6d3;
   --line:#26324f; --accent:#d99a3c; --accent2:#d99a3c; --good:#5ee0b4; --warn:#ffcf70; --bad:#ff7d8d;
@@ -15,11 +15,38 @@ p{font-size:18px;color:var(--muted);max-width:600px;margin:0}
 .btn{display:inline-flex;align-items:center;gap:8px;padding:11px 15px;border-radius:12px;border:0;background:linear-gradient(135deg,#e8ad4f,#c17f22);color:#12100a;font-weight:800}
 .btn:hover{text-decoration:none;transform:translateY(-1px)}
 .btn:active{transform:translateY(0) scale(.97)}
+.theme-toggle{position:fixed;top:18px;right:18px;z-index:5;display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border:1px solid var(--line);border-radius:10px;background:#151f37;cursor:pointer;transition:border-color .25s ease,background .25s ease,transform .15s ease}
+.theme-toggle svg{position:absolute;width:18px;height:18px;color:var(--accent);transition:transform .4s cubic-bezier(.16,1,.3,1),opacity .3s ease}
+.theme-toggle .icon-sun{opacity:0;transform:rotate(-90deg) scale(.4)}
+.theme-toggle .icon-moon{opacity:1;transform:rotate(0) scale(1)}
+[data-theme="light"] .theme-toggle .icon-sun{opacity:1;transform:rotate(0) scale(1)}
+[data-theme="light"] .theme-toggle .icon-moon{opacity:0;transform:rotate(90deg) scale(.4)}
+.theme-toggle:hover{border-color:var(--accent)}
+.theme-toggle:active{transform:scale(.92)}
+[data-theme="light"]{--bg:#f5efe6;--ink:#2f2740;--muted:#726a89;--line:#e1d8ef;--accent:#6d61c9;--accent2:#9b86e8}
+[data-theme="light"] body{background-color:#f5efe6;background-image:linear-gradient(rgba(109,97,201,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(109,97,201,.07) 1px,transparent 1px),radial-gradient(circle at 85% 4%,rgba(109,97,201,.10),transparent 34%),radial-gradient(circle at 12% 8%,rgba(155,134,232,.09),transparent 30%);background-size:42px 42px,42px 42px,auto,auto;background-attachment:fixed,fixed,fixed,fixed}
+[data-theme="light"] .theme-toggle{background:#efe7f7}
+[data-theme="light"] .code{color:var(--accent)}
+[data-theme="light"] .btn{color:#fff}
 </style></head><body>
+<button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to light theme" title="Switch theme"><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path></svg><svg class="icon-moon" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path></svg></button>
 <main class="wrap err">
   <div class="code">404 — NOT FOUND</div>
   <h1>This module hasn't been written.</h1>
   <p>The page you're looking for doesn't exist, or the link is out of date. Head back to the curriculum and pick up from there.</p>
   <a class="btn" href="/index.html">Back to Home →</a>
 </main>
+<script>(function(){
+var root=document.documentElement,btn=document.getElementById('theme-toggle');
+if(!btn)return;
+function effective(){return root.getAttribute('data-theme')==='light'?'light':'dark';}
+function sync(){var isLight=effective()==='light';btn.setAttribute('aria-pressed',isLight?'true':'false');btn.setAttribute('aria-label',isLight?'Switch to dark theme':'Switch to light theme');}
+sync();
+btn.addEventListener('click',function(){
+var next=effective()==='light'?'dark':'light';
+root.setAttribute('data-theme',next);
+try{localStorage.setItem('theme',next);}catch(e){}
+sync();
+});
+})();</script>
 </body></html>
