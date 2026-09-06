@@ -4,7 +4,7 @@
   --line:#26324f; --accent:#78a8ff; --accent2:#9d7bff; --good:#5ee0b4; --warn:#ffcf70; --bad:#ff7d8d;
   --max:1180px; --r:18px;
 }
-*{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:linear-gradient(180deg,#09101f 0,#0b1020 35%,#090d19 100%);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6}
+*{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background-color:#0b1020;background-image:linear-gradient(rgba(120,168,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(120,168,255,.05) 1px,transparent 1px),linear-gradient(180deg,#09101f 0,#0b1020 35%,#090d19 100%);background-size:42px 42px,42px 42px,100% 100%;background-attachment:fixed,fixed,fixed;color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6}
 a{color:#a9c8ff;text-decoration:none} a:hover{text-decoration:underline}
 .wrap{max-width:var(--max);margin:auto;padding:0 24px}.hero{padding:72px 0 42px;border-bottom:1px solid var(--line);background:radial-gradient(circle at 80% 10%,rgba(120,168,255,.18),transparent 34%),radial-gradient(circle at 20% 10%,rgba(157,123,255,.16),transparent 30%)}
 .eyebrow{display:inline-flex;gap:8px;align-items:center;border:1px solid var(--line);background:rgba(255,255,255,.03);padding:7px 11px;border-radius:999px;color:#cfe0ff;font-size:13px}.hero h1{font-size:clamp(40px,6vw,76px);line-height:1.02;letter-spacing:-.045em;margin:18px 0 18px;max-width:920px}.hero p{font-size:19px;color:var(--muted);max-width:760px}.hero strong{color:white}.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 15px;border-radius:12px;border:1px solid var(--line);background:#151f37;color:#fff;font-weight:700}.btn.primary{background:linear-gradient(135deg,#3f78ff,#8055ff);border:0}.btn:hover{text-decoration:none;transform:translateY(-1px)}
@@ -46,4 +46,15 @@ footer{border-top:1px solid var(--line);padding:30px 0 54px;color:#8793ad;font-s
 <section class="section sources"><div class="kicker">Learn deeper</div><h2>Primary references</h2><div class="source"><b><a href="https://docs.nvidia.com/nsight-compute/ProfilingGuide/index.html">NVIDIA Nsight Compute · Roofline analysis</a></b><span>Peak compute, memory bandwidth, arithmetic intensity, and compute-bound vs memory-bound interpretation.</span></div><div class="source"><b><a href="https://docs.pytorch.org/docs/main/notes/cuda.html">PyTorch · CUDA semantics and CUDA Graphs</a></b><span>Streams, graph capture, replay, and reduced CPU kernel-launch overhead.</span></div><div class="source"><b><a href="https://pytorch.org/blog/accelerating-pytorch-with-cuda-graphs/">PyTorch · Accelerating PyTorch with CUDA Graphs</a></b><span>Why graph replay can reduce Python/C++/driver dispatch overhead for graph-safe workloads.</span></div></section>
 <div class="page-nav"><a href="model-training.html"><small>← Previous module</small><b>Model Training & Deep Learning Fundamentals</b></a><a href="llm-architectures-scaling.html"><small>Next module →</small><b>LLM Architecture Families & Scaling</b></a></div>
 </main></div></div><footer><div class="wrap">AI Engineer Mental Models · Module 15 · AI Compute & GPU Fundamentals.</div></footer>
-<script>const r=document.getElementById('bwRange'),l=document.getElementById('bwLabel'),b=document.getElementById('boundType'),c=document.getElementById('computeUse'),m=document.getElementById('memoryPressure');function u(){const v=+r.value;l.textContent=v;if(v<30){b.textContent='Compute-leaning';c.textContent='High';m.textContent='Low';}else if(v<65){b.textContent='Balanced-ish';c.textContent='Medium';m.textContent='Medium';}else{b.textContent='Memory-leaning';c.textContent='Lower';m.textContent='High';}}r.addEventListener('input',u);u();</script></body></html>
+<script>const r=document.getElementById('bwRange'),l=document.getElementById('bwLabel'),b=document.getElementById('boundType'),c=document.getElementById('computeUse'),m=document.getElementById('memoryPressure');function u(){const v=+r.value;l.textContent=v;if(v<30){b.textContent='Compute-leaning';c.textContent='High';m.textContent='Low';}else if(v<65){b.textContent='Balanced-ish';c.textContent='Medium';m.textContent='Medium';}else{b.textContent='Memory-leaning';c.textContent='Lower';m.textContent='High';}}r.addEventListener('input',u);u();</script><script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && window.gsap && window.ScrollTrigger) {
+  gsap.registerPlugin(ScrollTrigger);
+  ScrollTrigger.batch('.card, .module-card, .callout, .visual, .interactive', {
+    start: 'top 88%',
+    onEnter: batch => gsap.from(batch, { opacity: 0, y: 16, duration: 0.6, stagger: 0.08, ease: 'power2.out', overwrite: true }),
+  });
+}
+</script>
+</body></html>
