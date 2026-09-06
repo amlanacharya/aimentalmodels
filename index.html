@@ -55,10 +55,10 @@ document.addEventListener('click',function(e){if(panel.classList.contains('open'
 document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
 })();
 document.addEventListener('DOMContentLoaded',function(){
-var grid=document.querySelector('.module-cards');
-if(!grid||window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-grid.addEventListener('pointermove',function(e){
-  var card=e.target.closest('.module-card');
+var root=document.getElementById('main');
+if(!root||window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+root.addEventListener('pointermove',function(e){
+  var card=e.target.closest('.module-card, .card');
   if(!card)return;
   var r=card.getBoundingClientRect();
   card.style.setProperty('--mx',(e.clientX-r.left)+'px');
