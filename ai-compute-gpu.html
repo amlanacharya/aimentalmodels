@@ -83,19 +83,20 @@ if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && window.gsa
 }
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/vanta/dist/vanta.waves.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vanta/dist/vanta.cells.min.js"></script>
 <script>
 if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && window.VANTA) {
   var heroFx = document.getElementById('hero-fx');
-  VANTA.WAVES({
+  VANTA.CELLS({
     el: heroFx,
     mouseControls: true, touchControls: true, gyroControls: false,
     minHeight: 200, minWidth: 200,
     scale: 1, scaleMobile: 1,
-    color: 0x151f37,
-    shininess: 22, waveHeight: 14, waveSpeed: 0.7, zoom: 0.85,
+    color1: 0xd99a3c,
+    color2: 0x0b1020,
+    size: 1.6, speed: 0.9
   });
-  heroFx.style.opacity = 1;
+  heroFx.style.opacity = 0.32;
 }
 </script>
 </body></html>
